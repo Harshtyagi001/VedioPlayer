@@ -13,7 +13,8 @@
   ],
   "author": "Harsh Tyagi",
   "license": "ISC",
-  "dependencies": {
-    "nodemon": "^3.0.2"
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "prettier": "^3.2.1"
   }
 }
