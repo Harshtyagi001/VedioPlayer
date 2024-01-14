@@ -2,12 +2,23 @@
 import dotenv from "dotenv"; 
 import mongoose from "mongoose";
 import connectDB from "./db/index.js";
+import app from "./app.js";
+import cookieParser from "cookie-parser";
+
 
 dotenv.config({
   path: "./env"
 });  // load environment variables as early as possible
 
-connectDB();
+connectDB()
+.then(()=>{
+  app.listen(process.env.PORT || 8000, ()=>{
+    console.log(`Express Server is running on port ${process.env.PORT}`); 
+  })
+})
+.catch((error)=>{
+  console.log("Mongoose Connection Failed: ",error);
+})
 
 
 
