@@ -20,6 +20,7 @@ const uploadOnCloudinary=async(localFilePath)=>{
       resource_type: "auto"     // to automatically identify the file type(audio,vedio,pdf) by cloudinary
      })
      console.log("File is Uploaded Successfully on Cloudinary", response.url);
+     fs.unlinkSync(localFilePath)
      return response;
   }catch(error){
     fs.unlinkSync(localFilePath)   // If there is an error in uploading, remove the locally saved temporary file (definitely I don't want to fill space with corrupt data)
