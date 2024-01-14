@@ -6,16 +6,16 @@ const userSchema = new Schema({
       unique:true,
       required:true,
       trim:true,
-      lowercase:true,
       index:true   // to make it searchable faster
     },
     email:{
       type:String,
       unique:true,
       required:true,
+      lowercase:true,
       trim:true,
     },
-   fullname:{
+   fullName:{
     type:String,
     required:true,
     trim:true,
@@ -61,7 +61,7 @@ userSchema.methods.generateAccessToken=function(){
     _id: this._id,
     email:this.email,
     username:this.username,
-    fullname:this.fullname,
+    fullName:this.fullName,
   },
 process.env.ACCESS_TOKEN_SECRET,
 {
@@ -75,7 +75,7 @@ userSchema.methods.generateRefreshToken=function(){
     _id: this._id,
     email:this.email,
     username:this.username,
-    fullname:this.fullname,
+    fullName:this.fullName,
   },
 process.env.REFRESH_TOKEN_SECRET,
 {
