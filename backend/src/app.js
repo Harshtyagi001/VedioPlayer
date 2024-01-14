@@ -15,4 +15,11 @@ app.use(urlencoded({limit:'32kb',extended:true}))
 app.use(express.static("public"))  // name of folder where we put our static files
 app.use(cookieParser())
 
+
+// routes import
+import userRouter from './routes/user.routes.js'
+
+// routes declaration
+app.use("/api/v1/users",userRouter);
+
 export default app;
