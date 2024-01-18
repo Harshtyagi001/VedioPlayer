@@ -11,6 +11,7 @@ router.post("/register",upload.fields([
 
 router.post("/login",loginUser)
 
+// Secured Routes
 router.post("/logout",verifyJWT,logOutUser) // can add multiple middlewares, next tells to go to next middleware
 
 export default router;
