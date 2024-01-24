@@ -53,7 +53,7 @@ if(!this.isModified("password")) return next(); // want to run first time and on
 
 // ****injecting methods to userSchema
 userSchema.methods.isPasswordCorrect=async function(password){
-  return await bcrypt.compare.compare(password,this.password)
+  return await bcrypt.compare(password,this.password)
 }
 
 userSchema.methods.generateAccessToken=function(){
